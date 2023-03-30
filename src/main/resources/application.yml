@@ -1,0 +1,17 @@
+micronaut:
+  application:
+    name: cosmosIssue
+azure:
+  cosmos:
+    default-gateway-mode: true
+    endpoint: https://${db}.documents.azure.com:443/
+    key: ${key}
+    consistency-level: SESSION
+    endpoint-discovery-enabled: false
+    database:
+      throughput-settings:
+        request-units: 1000
+        auto-scale: false
+      database-name: ${db_name}
+      packages: io.micronaut.data.azure.entities
+      update-policy: CREATE_IF_NOT_EXISTS
